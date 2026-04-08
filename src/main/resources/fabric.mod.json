@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "chatlogger",
+  "version": "${version}",
+  "name": "Chat Logger",
+  "description": "Logs all chat messages to a file for later viewing.",
+  "authors": ["you"],
+  "environment": "client",
+  "entrypoints": {
+    "client": ["com.chatloggerstarlight.chatlogger.ChatLoggerMod"]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "fabric-api": "*",
+    "minecraft": "~1.21.11"
+  }
+}
