@@ -47,7 +47,11 @@ public class ChatLoggerMod implements ClientModInitializer {
             // Create folder: chat_logs/<server-ip>/
             File logDir = new File(gameDir, "chat_logs" + File.separator + serverFolder);
             if (!logDir.exists()) {
-                logDir.mkdirs();
+                boolean created = logDir.mkdirs();
+                if (!created) { 
+                    LOGGER.error("[ChatLogger] Could not create log directory: {}", logDir.getAbsolutePath());
+                    return;
+                }   
             }
 
             // New timestamped file per session
@@ -68,6 +72,20 @@ public class ChatLoggerMod implements ClientModInitializer {
         ClientReceiveMessageEvents.GAME.register((message, overlay) -> {
             if (!overlay) {
                 logMessage("SYSTEM", message);
+            }
+        });
+        ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> {
+            if (logFile != null) {
+                String timestamp = LocalDateTime.now().format(TIMESTAMP_FMT);
+                String username = Minecraft.getInstance().getUser().getName();
+                String line = String.format("[%s] [SYSTEM] %s left the server%n", timestamp, username);
+
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter(logFile, true))) {
+                    writer.write(line);
+                } catch (IOException e) {
+                    LOGGER.error("[ChatLogger] Could not write disconnect message file: {}", e.getMessage());
+                }
+                logFile = null; 
             }
         });
     }
