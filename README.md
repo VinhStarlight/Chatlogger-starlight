@@ -9,7 +9,7 @@ messages to text files, organized by server IP. Never lose an important message 
 - 🕒 **Timestamped sessions** — new log file created every time you join a server
 - 💬 **Captures everything** — player messages, death messages, join/leave notices, 
 server broadcasts
-- 🔇 **Completely silent** — no chat spam, no GUI, just works in the background
+- 🔇 **Completely silent** — no chat spam, no GUI, just works in the background! You'll barely notice its there
 - ⚡ **Lightweight** — tiny mod with no performance impact
 
 ## 🔧 Installation
@@ -18,12 +18,6 @@ server broadcasts
 2. Install [Fabric API](https://modrinth.com/mod/fabric-api)
 3. Drop the mod `.jar` into your `.minecraft/mods/` folder
 4. Launch Minecraft and enjoy!
-
-## 📋 Requirements
-
-- Minecraft 1.21.11
-- Fabric Loader 0.18.1+
-- Fabric API
 
 ## 📜 License
 
