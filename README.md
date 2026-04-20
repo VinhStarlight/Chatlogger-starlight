@@ -1,6 +1,6 @@
 #  Chat Logger Starlight
 
-A lightweight Fabric mod for Minecraft 1.21.11 that automatically logs all chat 
+A lightweight Fabric mod for Minecraft 26.1.x that automatically logs all chat 
 messages to text files, organized by server IP. Never lose an important message again!
 
 ##  Features
